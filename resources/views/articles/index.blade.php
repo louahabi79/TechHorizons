@@ -35,8 +35,10 @@
                             @foreach($articles as $article)
                             <tr>
                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap"> {{ $article->article_title }} </p>
-                                </td>
+                                    <a href="{{ route('articles.show', ['article' => $article->article_id]) }}" class="text-blue-500 hover:text-blue-700 whitespace-no-wrap">
+                                      {{ $article->article_title }}
+                                     </a>
+                                    </td>
                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     <p class="text-gray-900 whitespace-no-wrap"> {{ substr($article->article_content, 0, 50)  }} </p>
                                 </td>
@@ -51,10 +53,10 @@
                                     <p class="text-gray-900 whitespace-no-wrap"> {{ $article->theme->theme_name }} </p>
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                    <a href="#" class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">
                                         Edit
                                     </a>
-                                    <a href="#" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                    <a href="#" class="bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded">
                                         Delete
                                     </a>
                                 </td>

@@ -1,5 +1,5 @@
 <x-app-layout>
-    <script src="{{ asset('js/subscription.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Themes') }}
@@ -45,10 +45,14 @@
                                    <form method="POST" action="{{ route('subscriptions.store') }}" id="subscription-form-{{$theme->theme_id}}">
                                       @csrf
                                         <input type="hidden" name="theme_id" value="{{ $theme->theme_id }}" />
-                                      <button type="submit" id="subscription-button-{{$theme->theme_id}}"
-                                      class="bg-greem-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded subscription-button" >
+                                        <button type="submit" id="subscription-button-{{$theme->theme_id}}"
+                                            class="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded subscription-button" >
+                                         @if (in_array($theme->theme_id, $subscribedThemeIds))
+                                            Unsubscribe
+                                          @else
                                            Subscribe
-                                         </button>
+                                          @endif
+                                      </button>
                                        </form>
                                  </td>
                             </tr>

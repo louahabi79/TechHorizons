@@ -16,14 +16,18 @@ class SubscriptionController extends Controller
         $request->validate([
             'theme_id' => 'required|exists:themes,theme_id',
         ]);
-        $subscription = Subscription::where('theme_id', $request->theme_id)->where('user_id', Auth::id())->first();
+        $themeId =  $request->theme_id;
+        $userId = Auth::id();
+        $subscription = Subscription::where('theme_id', $themeId)
+            ->where('user_id', $userId)->first();
         if (!$subscription) {
             Subscription::create([
-                'theme_id' => $request->theme_id,
-                'user_id' => Auth::id(),
+                'theme_id' => $themeId,
+                'user_id' => $userId,
             ]);
         } else {
-            $subscription->delete();
+            Subscription::where('theme_id', $themeId)
+                ->where('user_id', $userId)->delete();
         }
 
         return redirect()->route('themes.index')->with('success', 'Subscription updated successfully.');

@@ -1,0 +1,24 @@
+.options-menu {
+    position: absolute;
+    right: 0;
+    margin-top: 0.5rem; /* Adjust this value as needed */
+    width: 12rem; /* Adjust the width as needed */
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Ensure it appears above other elements */
+}
+.options-menu a,
+.options-menu button {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #4a5568;
+    text-decoration: none;
+    width: 100%;
+    text-align: left;
+}
+.options-menu a:hover,
+.options-menu button:hover {
+    background-color: #f0f0f0;
+}
